@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors Management - Car Admin System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar col-md-3 col-lg-2 px-0">
+            <div class="sidebar-brand d-flex align-items-center">
+                <i class="fas fa-car me-2"></i>
+                Car Admin
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cars.html">
+                        <i class="fas fa-car me-2"></i>
+                        Cars
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="colors.html">
+                        <i class="fas fa-palette me-2"></i>
+                        Colors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="interior.html">
+                        <i class="fas fa-couch me-2"></i>
+                        Interior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exterior.html">
+                        <i class="fas fa-cube me-2"></i>
+                        Exterior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <i class="fas fa-dollar-sign me-2"></i>
+                        Pricing
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="mt-auto p-3 border-top">
+                <div class="d-flex align-items-center text-light small">
+                    <div class="activity-dot success me-2"></div>
+                    System Online
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-0">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-custom px-4">
+                <button class="navbar-toggler d-md-none" type="button" id="sidebarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-brand fw-bold text-primary d-none d-md-block">
+                    Colors Management
+                </div>
+                
+                <div class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger badge-sm">3</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <div class="fade-in">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h3 fw-bold text-dark">Colors Management</h1>
+                            <p class="text-muted">Manage car paint colors and finishes</p>
+                        </div>
+                        <button class="btn btn-primary-custom">
+                            <i class="fas fa-plus me-2"></i>
+                            Add New Color
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <!-- Add Color Form -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-palette text-primary me-2"></i>
+                                        Add New Color
+                                    </h5>
+                                    <small class="text-muted">Define a new color option</small>
+                                </div>
+                                <div class="card-body">
+                                    <form id="colorForm">
+                                        <div class="mb-3">
+                                            <label for="colorName" class="form-label">Color Name</label>
+                                            <input type="text" class="form-control" id="colorName" name="colorName" placeholder="e.g., Midnight Black" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="colorCode" class="form-label">Color Code</label>
+                                            <div class="d-flex gap-2">
+                                                <input type="color" class="form-control form-control-color" id="colorPicker" name="colorPicker" value="#000000" style="width: 60px;">
+                                                <input type="text" class="form-control" id="colorCode" name="colorCode" placeholder="#000000" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select class="form-select" id="category" name="category" required>
+                                                <option value="">Select category</option>
+                                                <option value="standard">Standard</option>
+                                                <option value="premium">Premium</option>
+                                                <option value="sport">Sport</option>
+                                                <option value="luxury">Luxury</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            <input type="text" class="form-control" id="description" name="description" placeholder="Color description">
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom w-100">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Add Color
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Colors Table -->
+                        <div class="col-lg-8 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title mb-0">Colors List</h5>
+                                        <small class="text-muted">View and manage all available colors</small>
+                                    </div>
+                                    <div class="search-box">
+                                        <i class="fas fa-search search-icon"></i>
+                                        <input type="text" class="form-control search-input" placeholder="Search colors...">
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-custom mb-0" id="colorsTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Preview</th>
+                                                    <th>Name</th>
+                                                    <th>Color Code</th>
+                                                    <th>Category</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-id="1">
+                                                    <td>1</td>
+                                                    <td><div class="color-preview" style="background-color: #000000;"></div></td>
+                                                    <td class="fw-medium">Midnight Black</td>
+                                                    <td class="font-monospace small">#000000</td>
+                                                    <td><span class="badge bg-secondary">Standard</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="color">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="color">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="2">
+                                                    <td>2</td>
+                                                    <td><div class="color-preview" style="background-color: #FFFFFF; border: 2px solid #dee2e6;"></div></td>
+                                                    <td class="fw-medium">Pearl White</td>
+                                                    <td class="font-monospace small">#FFFFFF</td>
+                                                    <td><span class="badge bg-primary">Premium</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="color">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="color">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="3">
+                                                    <td>3</td>
+                                                    <td><div class="color-preview" style="background-color: #FF0000;"></div></td>
+                                                    <td class="fw-medium">Racing Red</td>
+                                                    <td class="font-monospace small">#FF0000</td>
+                                                    <td><span class="badge bg-danger">Sport</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="color">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="color">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="4">
+                                                    <td>4</td>
+                                                    <td><div class="color-preview" style="background-color: #0066CC;"></div></td>
+                                                    <td class="fw-medium">Ocean Blue</td>
+                                                    <td class="font-monospace small">#0066CC</td>
+                                                    <td><span class="badge bg-primary">Premium</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="color">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="color">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="5">
+                                                    <td>5</td>
+                                                    <td><div class="color-preview" style="background-color: #C0C0C0;"></div></td>
+                                                    <td class="fw-medium">Silver Metallic</td>
+                                                    <td class="font-monospace small">#C0C0C0</td>
+                                                    <td><span class="badge bg-secondary">Standard</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="color">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="color">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center text-muted small">
+                        <div>© 2024 Car Admin Dashboard. All rights reserved.</div>
+                        <div class="d-flex">
+                            <span>Version 1.0.0</span>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Documentation</a>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+    
+    <script>
+        // Color picker sync
+        document.getElementById('colorPicker').addEventListener('input', function() {
+            document.getElementById('colorCode').value = this.value;
+        });
+        
+        document.getElementById('colorCode').addEventListener('input', function() {
+            const colorValue = this.value;
+            if (/^#[0-9A-F]{6}$/i.test(colorValue)) {
+                document.getElementById('colorPicker').value = colorValue;
+            }
+        });
+    </script>
+</body>
+</html>

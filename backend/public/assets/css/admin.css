@@ -1,0 +1,213 @@
+/* Custom Admin Dashboard Styles */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --sidebar-bg: #343a40;
+  --sidebar-hover: #495057;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--sidebar-bg), #2c3034);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  padding: 12px 20px;
+  margin: 2px 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: var(--sidebar-hover);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.sidebar .nav-link.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+
+.sidebar .sidebar-brand {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #495057;
+}
+
+/* Navbar Styles */
+.navbar-custom {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-box {
+  max-width: 400px;
+  position: relative;
+}
+
+.search-box .form-control {
+  padding-left: 40px;
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+/* Card Styles */
+.card-custom {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: white;
+}
+
+.stat-card .card-body {
+  padding: 1.5rem;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Status Badges */
+.status-available { background-color: var(--success-color) !important; }
+.status-sold { background-color: var(--danger-color) !important; }
+.status-reserved { background-color: var(--warning-color) !important; }
+.status-inactive { background-color: #6c757d !important; }
+
+/* Color Preview */
+.color-preview {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Table Styles */
+.table-custom {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-custom thead {
+  background-color: #f8f9fa;
+}
+
+.table-custom tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Button Styles */
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+
+/* Footer */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    margin-left: -250px;
+  }
+  
+  .sidebar.show {
+    margin-left: 0;
+  }
+  
+  .content-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+/* Activity indicators */
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.activity-dot.success { background-color: var(--success-color); }
+.activity-dot.warning { background-color: var(--warning-color); }
+.activity-dot.primary { background-color: var(--primary-color); }
+
+/* Form styles */
+.form-group label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exterior Management - Car Admin System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar col-md-3 col-lg-2 px-0">
+            <div class="sidebar-brand d-flex align-items-center">
+                <i class="fas fa-car me-2"></i>
+                Car Admin
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cars.html">
+                        <i class="fas fa-car me-2"></i>
+                        Cars
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="fas fa-palette me-2"></i>
+                        Colors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="interior.html">
+                        <i class="fas fa-couch me-2"></i>
+                        Interior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="exterior.html">
+                        <i class="fas fa-cube me-2"></i>
+                        Exterior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <i class="fas fa-dollar-sign me-2"></i>
+                        Pricing
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="mt-auto p-3 border-top">
+                <div class="d-flex align-items-center text-light small">
+                    <div class="activity-dot success me-2"></div>
+                    System Online
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-0">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-custom px-4">
+                <button class="navbar-toggler d-md-none" type="button" id="sidebarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-brand fw-bold text-primary d-none d-md-block">
+                    Exterior Management
+                </div>
+                
+                <div class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger badge-sm">3</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <div class="fade-in">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h3 fw-bold text-dark">Exterior Management</h1>
+                            <p class="text-muted">Manage exterior packages and styling options</p>
+                        </div>
+                        <button class="btn btn-primary-custom">
+                            <i class="fas fa-plus me-2"></i>
+                            Add Exterior Option
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <!-- Add Exterior Form -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-cube text-primary me-2"></i>
+                                        Add Exterior Option
+                                    </h5>
+                                    <small class="text-muted">Create new exterior package</small>
+                                </div>
+                                <div class="card-body">
+                                    <form id="exteriorForm">
+                                        <div class="mb-3">
+                                            <label for="exteriorName" class="form-label">Package Name</label>
+                                            <input type="text" class="form-control" id="exteriorName" name="exteriorName" placeholder="e.g., Sport Package" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select class="form-select" id="category" name="category" required>
+                                                <option value="">Select category</option>
+                                                <option value="aerodynamics">Aerodynamics</option>
+                                                <option value="styling">Styling</option>
+                                                <option value="performance">Performance</option>
+                                                <option value="lighting">Lighting</option>
+                                                <option value="wheels">Wheels & Tires</option>
+                                                <option value="protection">Protection</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="exteriorPrice" class="form-label">Package Price</label>
+                                            <input type="text" class="form-control" id="exteriorPrice" name="exteriorPrice" placeholder="$0.00" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="features" class="form-label">Included Features</label>
+                                            <textarea class="form-control" id="features" name="features" rows="3" placeholder="List all features included in this package"></textarea>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="compatibility" class="form-label">Compatible Models</label>
+                                            <input type="text" class="form-control" id="compatibility" name="compatibility" placeholder="e.g., BMW X5, X3, 3 Series">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="exteriorDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="exteriorDescription" name="exteriorDescription" rows="2" placeholder="Detailed description of the exterior package"></textarea>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom w-100">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Add Exterior Package
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Exterior Options Table -->
+                        <div class="col-lg-8 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title mb-0">Exterior Packages List</h5>
+                                        <small class="text-muted">View and manage all exterior options</small>
+                                    </div>
+                                    <div class="search-box">
+                                        <i class="fas fa-search search-icon"></i>
+                                        <input type="text" class="form-control search-input" placeholder="Search packages...">
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-custom mb-0" id="exteriorTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Package Name</th>
+                                                    <th>Category</th>
+                                                    <th>Price</th>
+                                                    <th>Features</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-id="1">
+                                                    <td>1</td>
+                                                    <td class="fw-medium">Sport Package</td>
+                                                    <td><span class="badge bg-primary">Aerodynamics</span></td>
+                                                    <td class="text-primary fw-bold">$3,500</td>
+                                                    <td class="text-truncate" style="max-width: 200px;">Body kit, spoiler, side skirts</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="exterior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="exterior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="2">
+                                                    <td>2</td>
+                                                    <td class="fw-medium">Chrome Trim</td>
+                                                    <td><span class="badge bg-success">Styling</span></td>
+                                                    <td class="text-primary fw-bold">$800</td>
+                                                    <td class="text-truncate" style="max-width: 200px;">Window trim, door handles</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="exterior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="exterior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="3">
+                                                    <td>3</td>
+                                                    <td class="fw-medium">Carbon Fiber Kit</td>
+                                                    <td><span class="badge bg-danger">Performance</span></td>
+                                                    <td class="text-primary fw-bold">$5,200</td>
+                                                    <td class="text-truncate" style="max-width: 200px;">Hood, mirrors, rear diffuser</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="exterior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="exterior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="4">
+                                                    <td>4</td>
+                                                    <td class="fw-medium">LED Light Package</td>
+                                                    <td><span class="badge bg-warning">Lighting</span></td>
+                                                    <td class="text-primary fw-bold">$1,200</td>
+                                                    <td class="text-truncate" style="max-width: 200px;">Headlights, taillights, fog lights</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="exterior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="exterior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exterior Categories Overview -->
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0 d-flex align-items-center">
+                                        <div class="activity-dot primary me-2"></div>
+                                        Aerodynamics
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li>• Body kits</li>
+                                        <li>• Spoilers</li>
+                                        <li>• Side skirts</li>
+                                        <li>• Front splitters</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0 d-flex align-items-center">
+                                        <div class="activity-dot success me-2"></div>
+                                        Styling
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li>• Chrome trim</li>
+                                        <li>• Window tinting</li>
+                                        <li>• Decals</li>
+                                        <li>• Emblems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0 d-flex align-items-center">
+                                        <div class="color-preview bg-danger me-2" style="width: 12px; height: 12px; border-radius: 50%;"></div>
+                                        Performance
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li>• Carbon fiber parts</li>
+                                        <li>• Performance exhaust</li>
+                                        <li>• Air intakes</li>
+                                        <li>• Diffusers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0 d-flex align-items-center">
+                                        <div class="activity-dot warning me-2"></div>
+                                        Lighting
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0 small text-muted">
+                                        <li>• LED headlights</li>
+                                        <li>• Taillights</li>
+                                        <li>• Fog lights</li>
+                                        <li>• Underglow</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center text-muted small">
+                        <div>© 2024 Car Admin Dashboard. All rights reserved.</div>
+                        <div class="d-flex">
+                            <span>Version 1.0.0</span>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Documentation</a>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+</body>
+</html>

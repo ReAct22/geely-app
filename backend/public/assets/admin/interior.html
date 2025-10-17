@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Management - Car Admin System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar col-md-3 col-lg-2 px-0">
+            <div class="sidebar-brand d-flex align-items-center">
+                <i class="fas fa-car me-2"></i>
+                Car Admin
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cars.html">
+                        <i class="fas fa-car me-2"></i>
+                        Cars
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="fas fa-palette me-2"></i>
+                        Colors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="interior.html">
+                        <i class="fas fa-couch me-2"></i>
+                        Interior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exterior.html">
+                        <i class="fas fa-cube me-2"></i>
+                        Exterior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pricing.html">
+                        <i class="fas fa-dollar-sign me-2"></i>
+                        Pricing
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="mt-auto p-3 border-top">
+                <div class="d-flex align-items-center text-light small">
+                    <div class="activity-dot success me-2"></div>
+                    System Online
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-0">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-custom px-4">
+                <button class="navbar-toggler d-md-none" type="button" id="sidebarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-brand fw-bold text-primary d-none d-md-block">
+                    Interior Management
+                </div>
+                
+                <div class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger badge-sm">3</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <div class="fade-in">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h3 fw-bold text-dark">Interior Management</h1>
+                            <p class="text-muted">Manage interior options and configurations</p>
+                        </div>
+                        <button class="btn btn-primary-custom">
+                            <i class="fas fa-plus me-2"></i>
+                            Add Interior Option
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <!-- Add Interior Form -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-couch text-primary me-2"></i>
+                                        Add Interior Option
+                                    </h5>
+                                    <small class="text-muted">Create new interior configuration</small>
+                                </div>
+                                <div class="card-body">
+                                    <form id="interiorForm">
+                                        <div class="mb-3">
+                                            <label for="interiorName" class="form-label">Interior Name</label>
+                                            <input type="text" class="form-control" id="interiorName" name="interiorName" placeholder="e.g., Leather Premium" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="material" class="form-label">Material</label>
+                                            <select class="form-select" id="material" name="material" required>
+                                                <option value="">Select material</option>
+                                                <option value="leather">Genuine Leather</option>
+                                                <option value="nappa">Nappa Leather</option>
+                                                <option value="alcantara">Alcantara</option>
+                                                <option value="fabric">Premium Fabric</option>
+                                                <option value="vinyl">Vinyl</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="interiorColor" class="form-label">Color</label>
+                                            <input type="text" class="form-control" id="interiorColor" name="interiorColor" placeholder="e.g., Black, Beige, Red" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="interiorPrice" class="form-label">Additional Price</label>
+                                            <input type="text" class="form-control" id="interiorPrice" name="interiorPrice" placeholder="$0.00" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="features" class="form-label">Features</label>
+                                            <textarea class="form-control" id="features" name="features" rows="3" placeholder="List features (heated seats, massage, memory, etc.)"></textarea>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="interiorDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="interiorDescription" name="interiorDescription" rows="2" placeholder="Detailed description of the interior option"></textarea>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom w-100">
+                                            <i class="fas fa-plus me-2"></i>
+                                            Add Interior Option
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Interior Options Table -->
+                        <div class="col-lg-8 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title mb-0">Interior Options List</h5>
+                                        <small class="text-muted">View and manage all interior configurations</small>
+                                    </div>
+                                    <div class="search-box">
+                                        <i class="fas fa-search search-icon"></i>
+                                        <input type="text" class="form-control search-input" placeholder="Search interior options...">
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-custom mb-0" id="interiorTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Material</th>
+                                                    <th>Color</th>
+                                                    <th>Additional Price</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-id="1">
+                                                    <td>1</td>
+                                                    <td class="fw-medium">Leather Premium</td>
+                                                    <td>Genuine Leather</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="color-preview bg-dark me-2" style="width: 16px; height: 16px;"></div>
+                                                            Black
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-primary fw-bold">$2,500</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="interior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="interior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="2">
+                                                    <td>2</td>
+                                                    <td class="fw-medium">Sport Seats</td>
+                                                    <td>Alcantara</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="color-preview bg-danger me-2" style="width: 16px; height: 16px;"></div>
+                                                            Red
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-primary fw-bold">$3,200</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="interior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="interior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="3">
+                                                    <td>3</td>
+                                                    <td class="fw-medium">Comfort Plus</td>
+                                                    <td>Premium Fabric</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="color-preview bg-secondary me-2" style="width: 16px; height: 16px;"></div>
+                                                            Gray
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-primary fw-bold">$1,800</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="interior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="interior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="4">
+                                                    <td>4</td>
+                                                    <td class="fw-medium">Executive</td>
+                                                    <td>Nappa Leather</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="color-preview" style="width: 16px; height: 16px; background-color: #f5deb3;"></div>
+                                                            <span class="ms-2">Beige</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-primary fw-bold">$4,000</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="interior">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="interior">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interior Features Overview -->
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0">Premium Features</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="d-flex align-items-center mb-2">
+                                            <div class="activity-dot primary me-2"></div>
+                                            Heated & Ventilated Seats
+                                        </li>
+                                        <li class="d-flex align-items-center mb-2">
+                                            <div class="activity-dot primary me-2"></div>
+                                            Memory Settings
+                                        </li>
+                                        <li class="d-flex align-items-center">
+                                            <div class="activity-dot primary me-2"></div>
+                                            Massage Function
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0">Material Types</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="small">Genuine Leather</span>
+                                        <span class="text-primary small fw-bold">+$2,500</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="small">Nappa Leather</span>
+                                        <span class="text-primary small fw-bold">+$4,000</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="small">Alcantara</span>
+                                        <span class="text-primary small fw-bold">+$3,200</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0">Popular Colors</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="color-preview bg-dark me-2" style="width: 16px; height: 16px;"></div>
+                                        <span class="small">Black (45%)</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="color-preview me-2" style="width: 16px; height: 16px; background-color: #f5deb3;"></div>
+                                        <span class="small">Beige (30%)</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="color-preview bg-secondary me-2" style="width: 16px; height: 16px;"></div>
+                                        <span class="small">Gray (25%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center text-muted small">
+                        <div>© 2024 Car Admin Dashboard. All rights reserved.</div>
+                        <div class="d-flex">
+                            <span>Version 1.0.0</span>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Documentation</a>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+</body>
+</html>

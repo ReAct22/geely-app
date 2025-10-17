@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Management - Car Admin System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar col-md-3 col-lg-2 px-0">
+            <div class="sidebar-brand d-flex align-items-center">
+                <i class="fas fa-car me-2"></i>
+                Car Admin
+            </div>
+            
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cars.html">
+                        <i class="fas fa-car me-2"></i>
+                        Cars
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="fas fa-palette me-2"></i>
+                        Colors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="interior.html">
+                        <i class="fas fa-couch me-2"></i>
+                        Interior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exterior.html">
+                        <i class="fas fa-cube me-2"></i>
+                        Exterior
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="pricing.html">
+                        <i class="fas fa-dollar-sign me-2"></i>
+                        Pricing
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="mt-auto p-3 border-top">
+                <div class="d-flex align-items-center text-light small">
+                    <div class="activity-dot success me-2"></div>
+                    System Online
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 px-0">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-custom px-4">
+                <button class="navbar-toggler d-md-none" type="button" id="sidebarToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="navbar-brand fw-bold text-primary d-none d-md-block">
+                    Pricing Management
+                </div>
+                
+                <div class="navbar-nav ms-auto d-flex flex-row align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger badge-sm">3</span>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-item dropdown ms-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i>
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content -->
+            <div class="container-fluid p-4">
+                <div class="fade-in">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h1 class="h3 fw-bold text-dark">Pricing Management</h1>
+                            <p class="text-muted">Manage car pricing and discount strategies</p>
+                        </div>
+                        <button class="btn btn-primary-custom">
+                            <i class="fas fa-plus me-2"></i>
+                            Add Price Rule
+                        </button>
+                    </div>
+
+                    <!-- Pricing Overview Cards -->
+                    <div class="row mb-4">
+                        <div class="col-md-3 mb-3">
+                            <div class="card card-custom">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-dollar-sign fa-2x text-primary mb-2"></i>
+                                    <div class="h5 fw-bold">$59,375</div>
+                                    <div class="small text-muted">Average Price</div>
+                                    <small class="text-success d-flex align-items-center justify-content-center mt-1">
+                                        <i class="fas fa-arrow-up me-1"></i>
+                                        +12% from last month
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="card card-custom">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-percentage fa-2x text-warning mb-2"></i>
+                                    <div class="h5 fw-bold">4.2%</div>
+                                    <div class="small text-muted">Total Discount</div>
+                                    <small class="text-muted">Average discount rate</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="card card-custom">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-tags fa-2x text-success mb-2"></i>
+                                    <div class="h5 fw-bold">8</div>
+                                    <div class="small text-muted">Active Promotions</div>
+                                    <small class="text-success">Currently running</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 mb-3">
+                            <div class="card card-custom">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                                    <div class="h5 fw-bold">+15.8%</div>
+                                    <div class="small text-muted">Revenue Impact</div>
+                                    <small class="text-primary">vs last quarter</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Add Pricing Form -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-dollar-sign text-primary me-2"></i>
+                                        Set Pricing
+                                    </h5>
+                                    <small class="text-muted">Configure car pricing and discounts</small>
+                                </div>
+                                <div class="card-body">
+                                    <form id="pricingForm">
+                                        <div class="mb-3">
+                                            <label for="carModel" class="form-label">Car Model</label>
+                                            <select class="form-select" id="carModel" name="carModel" required>
+                                                <option value="">Select car model</option>
+                                                <option value="bmw-x5">BMW X5</option>
+                                                <option value="mercedes-c">Mercedes C-Class</option>
+                                                <option value="audi-a4">Audi A4</option>
+                                                <option value="tesla-s">Tesla Model S</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="basePrice" class="form-label">Base Price</label>
+                                            <input type="text" class="form-control" id="basePrice" name="basePrice" placeholder="$0.00" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="msrp" class="form-label">MSRP</label>
+                                            <input type="text" class="form-control" id="msrp" name="msrp" placeholder="$0.00" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="discount" class="form-label">Discount (%)</label>
+                                            <input type="text" class="form-control" id="discount" name="discount" placeholder="0%" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="effectiveDate" class="form-label">Effective Date</label>
+                                            <input type="date" class="form-control" id="effectiveDate" name="effectiveDate" required>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                                            <input type="date" class="form-control" id="expiryDate" name="expiryDate">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="pricingStatus" class="form-label">Status</label>
+                                            <select class="form-select" id="pricingStatus" name="pricingStatus" required>
+                                                <option value="">Select status</option>
+                                                <option value="active">Active</option>
+                                                <option value="inactive">Inactive</option>
+                                                <option value="scheduled">Scheduled</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom w-100">
+                                            <i class="fas fa-save me-2"></i>
+                                            Save Pricing
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pricing Table -->
+                        <div class="col-lg-8 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title mb-0">Current Pricing</h5>
+                                        <small class="text-muted">View and manage all car pricing</small>
+                                    </div>
+                                    <div class="search-box">
+                                        <i class="fas fa-search search-icon"></i>
+                                        <input type="text" class="form-control search-input" placeholder="Search pricing...">
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-custom mb-0" id="pricingTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Model</th>
+                                                    <th>Base Price</th>
+                                                    <th>MSRP</th>
+                                                    <th>Discount</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-id="1">
+                                                    <td>1</td>
+                                                    <td class="fw-medium">BMW X5</td>
+                                                    <td>$65,000</td>
+                                                    <td>$68,500</td>
+                                                    <td><span class="badge bg-success">5%</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="pricing">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="pricing">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="2">
+                                                    <td>2</td>
+                                                    <td class="fw-medium">Mercedes C-Class</td>
+                                                    <td>$45,000</td>
+                                                    <td>$47,800</td>
+                                                    <td><span class="badge bg-warning">8%</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="pricing">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="pricing">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="3">
+                                                    <td>3</td>
+                                                    <td class="fw-medium">Audi A4</td>
+                                                    <td>$42,000</td>
+                                                    <td>$44,200</td>
+                                                    <td><span class="badge bg-secondary">0%</span></td>
+                                                    <td><span class="badge bg-secondary">Inactive</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="pricing">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="pricing">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="4">
+                                                    <td>4</td>
+                                                    <td class="fw-medium">Tesla Model S</td>
+                                                    <td>$85,000</td>
+                                                    <td>$89,000</td>
+                                                    <td><span class="badge bg-success">3%</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary btn-edit me-1" data-type="pricing">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger btn-delete" data-type="pricing">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Analytics -->
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Price History</h5>
+                                    <small class="text-muted">Recent pricing changes</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <div class="fw-medium">BMW X5 - Price Update</div>
+                                            <small class="text-muted">$65,000 → $62,000</small>
+                                        </div>
+                                        <span class="text-muted small">2 hours ago</span>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <div class="fw-medium">Mercedes C-Class - Discount Applied</div>
+                                            <small class="text-muted">8% discount added</small>
+                                        </div>
+                                        <span class="text-muted small">1 day ago</span>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="fw-medium">Tesla Model S - MSRP Update</div>
+                                            <small class="text-muted">$89,000 → $91,000</small>
+                                        </div>
+                                        <span class="text-muted small">3 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mb-4">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Competitive Analysis</h5>
+                                    <small class="text-muted">Market positioning</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="small">BMW X5 vs Market</span>
+                                        <span class="small fw-medium text-success">Below avg (-$2,500)</span>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="small">Mercedes C-Class vs Market</span>
+                                        <span class="small fw-medium text-primary">At market level</span>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="small">Tesla Model S vs Market</span>
+                                        <span class="small fw-medium text-warning">Above avg (+$3,200)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center text-muted small">
+                        <div>© 2024 Car Admin Dashboard. All rights reserved.</div>
+                        <div class="d-flex">
+                            <span>Version 1.0.0</span>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Documentation</a>
+                            <span class="mx-2">•</span>
+                            <a href="#" class="text-decoration-none">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/admin.js"></script>
+</body>
+</html>
