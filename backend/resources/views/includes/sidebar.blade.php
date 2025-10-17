@@ -6,39 +6,45 @@
 
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="{{route('home')}}">
+            <a class="nav-link active" href="{{ route('home') }}">
                 <i class="fas fa-chart-bar me-2"></i>
                 Dashboard
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('cars.index')}}">
+            <a class="nav-link" href="{{ route('cars.index') }}">
                 <i class="fas fa-car me-2"></i>
                 Cars
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('color.index')}}">
+            <a class="nav-link" href="{{ route('color.index') }}">
                 <i class="fas fa-palette me-2"></i>
                 Colors
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('interior.index')}}">
+            <a class="nav-link" href="{{ route('interior.index') }}">
                 <i class="fas fa-couch me-2"></i>
                 Interior
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('exterior.index')}}">
+            <a class="nav-link" href="{{ route('exterior.index') }}">
                 <i class="fas fa-cube me-2"></i>
                 Exterior
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('price.index')}}">
+            <a class="nav-link" href="{{ route('price.index') }}">
                 <i class="fas fa-dollar-sign me-2"></i>
                 Pricing
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="fa-solid fa-thumbs-up"></i>
+                Testimoni
             </a>
         </li>
     </ul>

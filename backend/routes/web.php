@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExteriorController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('home');
@@ -14,3 +15,4 @@ Route::resource('price', PriceController::class);
 Route::resource('color', ColorController::class);
 Route::resource('interior', InteriorController::class);
 Route::resource('exterior', ExteriorController::class);
+Route::resource('testimoni', TestimoniController::class);
