@@ -31,7 +31,12 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                <li>
+                    <form action="{{route('logout')}}" method="post">
+                        @csrf
+                        <button class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
