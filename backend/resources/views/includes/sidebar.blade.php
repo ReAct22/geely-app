@@ -42,7 +42,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('testimoni.index')}}" class="nav-link">
                 <i class="fa-solid fa-thumbs-up"></i>
                 Testimoni
             </a>

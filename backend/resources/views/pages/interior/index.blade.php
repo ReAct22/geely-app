@@ -58,7 +58,7 @@
                                                     class="btn btn-sm btn-outline-primary me-1">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
-                                                <form action="{{ route('interior.destroy', $item->id) }}" class="d-inline"
+                                                <form action="{{ route('interior.destroy', $item->id) }}" class="d-flex"
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')

@@ -38,11 +38,11 @@ class TestimoniController extends Controller
             'image' => 'nullable|image|mimes:png,jpg|max:2046'
         ]);
 
-        if($validate->fails()){
+        if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }
         $imagePath = null;
-        if($request->hasfile('image')){
+        if ($request->hasfile('image')) {
             $imagePath = $request->file('image')->store('testimoni', 'public');
         }
 
@@ -53,16 +53,12 @@ class TestimoniController extends Controller
         ]);
 
         return redirect()->route('testimoni.index')->with('success', 'Data testimoni berhasil ditambahkan');
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -85,22 +81,23 @@ class TestimoniController extends Controller
             'image' => 'nullable|image|mimes:png,jpg|max:2046'
         ]);
 
-        if($validate->fails()){
+        if ($validate->fails()) {
             return redirect()->back()->withErrors($validate)->withInput();
         }
 
         $imagePath = null;
+        $data = $validate->validated();
 
-        if($request->hasFile('image')){
-            if($testimoni->image && Storage::exists('public/'.$testimoni->image)){
-                Storage::delete('public'.$testimoni->image);
+        if ($request->hasFile('image')) {
+            if ($testimoni->image && Storage::exists('public/' . $testimoni->image)) {
+                Storage::delete('public' . $testimoni->image);
             }
 
             $imagePath = $request->file('image')->store('testimoni', 'public');
-            $validate['image'] = $imagePath;
+            $data['image'] = $imagePath;
         }
 
-        $testimoni->update($validate);
+        $testimoni->update($data);
         return redirect()->route('testimoni.index')->with('success', 'Data berhasil diperbarui');
     }
 
@@ -109,6 +106,15 @@ class TestimoniController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $testimoni = Testimoni::findOrFail($id);
+
+        if ($testimoni->image) {
+            if ($testimoni->image && Storage::exists('public/' . $testimoni->image)) {
+                Storage::delete('public/' . $testimoni->image);
+            }
+        }
+        $testimoni->delete();
+
+        return redirect()->back()->with('success', 'Data berhasil dihapus');
     }
 }
