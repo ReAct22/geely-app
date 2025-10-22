@@ -9,10 +9,25 @@ use Illuminate\Http\Request;
 class CarController extends Controller
 {
     public function index(){
-        $cars = Car::with(['Prices', 'color', 'interiors', 'exteriors'])->get();
+        $cars = Car::with(['Prices', 'color', 'interiors', 'exteriors'])->latest('created_at')->first();
 
         return response()->json([
             'status'=>'success',
+            'data' => $cars
+        ]);
+    }
+
+    public function getAll(){
+        $cars = Car::with(['Prices', 'color', 'interiors', 'exteriors'])->latest('created_at')->get();
+        if(empty($cars)){
+            return response()->json([
+                'status' => 'failed',
+                'data' => []
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'success',
             'data' => $cars
         ]);
     }

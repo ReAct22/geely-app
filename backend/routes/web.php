@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExteriorController;
 use App\Http\Controllers\InteriorController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\TestDriveController;
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ Route::middleware(['auth', 'check.role:admin'])->group(function () {
     Route::resource('interior', InteriorController::class);
     Route::resource('exterior', ExteriorController::class);
     Route::resource('testimoni', TestimoniController::class);
+    Route::resource('testdrive', TestDriveController::class);
 });
