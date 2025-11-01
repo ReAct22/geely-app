@@ -47,6 +47,12 @@
                 Testimoni
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('testdrive.index')}}" class="nav-link">
+               <i class="fa-solid fa-road"></i>
+                Test Drive
+            </a>
+        </li>
     </ul>
 
     <div class="mt-auto p-3 border-top">
